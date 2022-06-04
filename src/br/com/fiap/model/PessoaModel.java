@@ -1,31 +1,17 @@
 package br.com.fiap.model;
 
-import java.util.Date;
+import br.com.fiap.dao.PessoaDAO;
 
 public class PessoaModel {
-	
+
 	private int id;
-	private char sexo;
+	private String sexo;
 	private int idade;
-	private int idRegiao;
-	private int idDoenca;
-	private int idClasse;
-	
-	public PessoaModel(int id, char sexo, int idade, Date data) {
-		super();
-		this.id = id;
-		this.sexo = sexo;
-		this.idade = idade;
-	}
-	
-	public PessoaModel(int id, char sexo, int idade, Date data, int idRegiao, int idDoenca, int idClasse) {
-		super();
-		this.id = id;
-		this.sexo = sexo;
-		this.idade = idade;
-		this.idRegiao = idRegiao;
-		this.idDoenca = idDoenca;
-		this.idClasse = idClasse;
+	private int regiao;
+	private int doenca;
+	private int renda;
+
+	public PessoaModel() {
 	}
 
 	public int getId() {
@@ -34,10 +20,10 @@ public class PessoaModel {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 	public int getIdade() {
@@ -46,23 +32,27 @@ public class PessoaModel {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
-	public int getIdRegiao() {
-		return idRegiao;
+	public int getRegiao() {
+		return regiao;
 	}
-	public void setIdRegiao(int idRegiao) {
-		this.idRegiao = idRegiao;
+	public void setRegiao(int regiao) {
+		this.regiao = regiao;
 	}
-	public int getIdDoenca() {
-		return idDoenca;
+	public int getDoenca() {
+		return doenca;
 	}
-	public void setIdDoenca(int idDoenca) {
-		this.idDoenca = idDoenca;
+	public void setDoenca(int doenca) {
+		this.doenca = doenca;
 	}
-	public int getIdClasse() {
-		return idClasse;
+	public int getRenda() {
+		return renda;
 	}
-	public void setIdClasse(int idClasse) {
-		this.idClasse = idClasse;
+	public void setRenda(int renda) {
+		this.renda = renda;
 	}
-	
+
+	public int AdicionaUser(PessoaModel obj) {
+		PessoaDAO aDao = new PessoaDAO();
+		return aDao.Add(obj);
+	}
 }
